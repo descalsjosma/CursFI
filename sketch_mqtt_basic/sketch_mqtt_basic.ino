@@ -20,7 +20,7 @@
 // Update these with values suitable for your network.
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 //byte mac[]    = {  0xD8, 0xA7, 0x56, 0x31, 0x06, 0xD0 };
-IPAddress ip(192, 168, 1, 199);
+IPAddress ip(192, 168, 1, 99);
 IPAddress server(192, 168, 1, 151);
 
 void callback(char* topic, byte* payload, unsigned int length) {
