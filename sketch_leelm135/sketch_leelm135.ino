@@ -1,17 +1,16 @@
-int analog_pin = 0;
+const int sensorPin= A0;
 
-float temperatura;
-float celsius;
-
-void setup () {
+void setup()
+{
   Serial.begin(9600);
 }
 
-void loop() {
-  temperatura = analogRead(analog_pin);
-  temperatura= (temperatura/1024.0) * 5000;
-  celsius= (temperatura/10)- 273.15;
+void loop()
+{
+  int value = analogRead(sensorPin);
+  float millivolts = (value / 1023.0) * 5000;
+  float celsius = millivolts / 10; 
   Serial.print(celsius);
-  Serial.println(" degrees Celsius");
+  Serial.println(" C");
   delay(1000);
 }
