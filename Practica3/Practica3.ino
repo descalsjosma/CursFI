@@ -140,20 +140,22 @@ void loop()
     sensors1.requestTemperatures();   //Se envía el comando para leer la temperatura
     temp1= sensors1.getTempCByIndex(0); //Se obtiene la temperatura en ºC
     sensors2.requestTemperatures();   //Se envía el comando para leer la temperatura
-    temp2= sensors1.getTempCByIndex(0); //Se obtiene la temperatura en ºC
+    temp2= sensors2.getTempCByIndex(0); //Se obtiene la temperatura en ºC
     sensors3.requestTemperatures();   //Se envía el comando para leer la temperatura
-    temp3= sensors1.getTempCByIndex(0); //Se obtiene la temperatura en ºC
+    temp3= sensors3.getTempCByIndex(0); //Se obtiene la temperatura en ºC
 
     if (client.connect("arduinoClient")) {
       Serial.println("connected");
       dtostrf(temp1, 4, 1, charTemperature1);
+      dtostrf(temp2, 4, 1, charTemperature2);
+      dtostrf(temp3, 4, 1, charTemperature3);
       client.publish(publish_temperatura1, charTemperature1);
       client.publish(publish_temperatura2, charTemperature2);
       client.publish(publish_temperatura3, charTemperature3);
     } 
     // Ubicamos el cursor en la primera posición(columna:0) de la segunda línea(fila:1)
     lcd.setCursor(0, 1);
-    lcd.print("T");
+//    lcd.print("T");
     lcd.print(temp1);
     lcd.print(" ");
     lcd.print(temp2);
